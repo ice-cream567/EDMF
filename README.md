@@ -51,3 +51,12 @@ REBlur with raw events: [[ETH_share_link](https://data.vision.ee.ethz.ch/csakari
 
 
 
+
+### Contact
+Should you have any questions, please feel free to contact guoguangsha21@mails.ucas.ac.cn.
+
+
+### License and Acknowledgement
+
+This project is under the Apache 2.0 license, and it is based on [BasicSR](https://github.com/xinntao/BasicSR) which is under the Apache 2.0 license. Thanks to the inspirations and codes from [EFNet](https://github.com/AHupuJR/EFNet) and [event_utils](https://github.com/TimoStoff/event_utils)
+
