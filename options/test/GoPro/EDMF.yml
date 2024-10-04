@@ -1,0 +1,55 @@
+# general settings
+name: AAA
+model_type: TestImageEventRestorationModel
+scale: 1
+num_gpu: 1 # set num_gpu: 0 for cpu mode
+manual_seed: 10
+
+# dataset and data loader settings
+datasets:
+  test:
+    name: gopro-bestmodel-test
+    type: H5ImageDataset
+
+    dataroot: /home/ice/MFHI/datasets_MFHI/GOPRO_3d10/test #/home/ice/MFHI/datasets_EFNet/GOPRO_fullsize_h5_bin6_ver3_nocenter_noisy_c02/test #/home/ice/MFHI/datasets_MFHI/GOPRO_3d10/test # for debug
+
+    # add
+    norm_voxel: true
+    return_voxel: true
+    return_gt_frame: false
+    return_mask: true
+    use_mask: true
+
+    crop_size: ~
+    use_flip: false
+    use_rot: false
+    io_backend:
+      type: h5
+
+dataset_name: GoPro
+
+# network structures
+network_g:
+  type: MFHI #EFNet
+  wf: 64 #64
+  fuse_before_downsample: true
+
+
+# path
+path:
+  pretrain_network_g: /home/ice/MFHI/experiments/MFHI28_3d10_30/models/net_g_latest.pth # /home/ice/MFHI/experiments/MFHI28_3d10_32_30-SF
+  strict_load_g: false
+  resume_state: ~
+  root: /home/ice/MFHI/experiments/AAA  # set this option ONLY in TEST!!!
+
+# validation settings
+val:
+  save_img: true
+  grids: ~
+  crop_size: ~
+  rgb2bgr: false # to my h5 data, its false
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
